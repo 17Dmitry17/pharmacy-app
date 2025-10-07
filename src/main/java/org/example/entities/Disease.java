@@ -28,6 +28,6 @@ public class Disease {
 
     @Override
     public String toString() {
-        return "Болезнь: " + name + " (" + description + ")";
+        return "Болезнь: " + name + " - " + description;
     }
 }

@@ -25,4 +25,10 @@ public class DiseaseSymptom {
     public void setSymptomName(String symptomName) {
         this.symptomName = symptomName;
     }
+
+    @Override
+    public String toString() {
+        return "Связь: болезнь '" + diseaseName + "' <-> симптом '" + symptomName + "'";
+    }
+
 }

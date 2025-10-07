@@ -19,4 +19,5 @@ public class Symptom {
     public String toString() {
         return "Симптом: " + name;
     }
+
 }
