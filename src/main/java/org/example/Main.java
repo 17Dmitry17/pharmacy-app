@@ -5,15 +5,19 @@ import org.example.repository.*;
 import org.example.service.PharmacyService;
 import org.example.service.PharmacyServiceImpl;
 
+/**
+ * Главный класс приложения "Домашняя аптечка"
+ * Инициализирует все компоненты и запускает консольное меню
+ */
 public class Main {
     public static void main(String[] args) {
-        //создаем репозитории
+        //создаем репозитории для работы с данными в памяти
         MedicineRepository medicineRepository = new MedicineRepositoryInMemory();
         DiseaseRepository diseaseRepository = new DiseaseRepositoryInMemory();
         SymptomRepository symptomRepository = new SymptomRepositoryInMemory();
         DiseaseSymptomRepository diseaseSymptomRepository = new DiseaseSymptomRepositoryInMemory();
 
-        //создаем сервис и передаем репозитории
+        //создаем сервис с внедрением зависимостей
         PharmacyService pharmacyService = new PharmacyServiceImpl(
                 medicineRepository,
                 diseaseRepository,
@@ -21,7 +25,7 @@ public class Main {
                 diseaseSymptomRepository
         );
 
-        //создаем меню и запускаем приложение
+        //запускаем консольное меню
         Menu menu = new Menu(pharmacyService);
         menu.run();
     }

@@ -7,8 +7,6 @@ public class Medicine {
     private LocalDate expirationDate;
     private String diseaseName;
 
-    public Medicine() {
-    }
 
     public Medicine(String name, LocalDate expirationDate, String diseaseName) {
         this.name = name;

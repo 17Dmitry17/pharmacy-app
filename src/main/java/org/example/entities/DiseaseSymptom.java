@@ -4,8 +4,6 @@ public class DiseaseSymptom {
     private String diseaseName;
     private String symptomName;
 
-    public DiseaseSymptom() {
-    }
 
     public DiseaseSymptom(String diseaseName, String symptomName) {
         this.diseaseName = diseaseName;

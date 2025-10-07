@@ -3,9 +3,6 @@ package org.example.entities;
 public class Symptom {
     private String name;
 
-    public Symptom() {
-    }
-
     public Symptom(String name) {
         this.name = name;
     }
