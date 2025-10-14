@@ -9,12 +9,17 @@ import org.example.repository.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Реализация сервиса домашней аптечки
+ * Содержит бизнес-логику приложения
+ */
 public class PharmacyServiceImpl implements PharmacyService {
     private MedicineRepository medicineRepository;
     private DiseaseRepository diseaseRepository;
     private SymptomRepository symptomRepository;
     private DiseaseSymptomRepository diseaseSymptomRepository;
 
+    // Конструктор с внедрением зависимостей (Dependency Injection)
     public PharmacyServiceImpl(MedicineRepository medicineRepository,
                                DiseaseRepository diseaseRepository,
                                SymptomRepository symptomRepository,
@@ -77,15 +82,18 @@ public class PharmacyServiceImpl implements PharmacyService {
 
     @Override
     public void linkDiseaseWithSymptom(String diseaseName, String symptomName) {
+        // Создание связи через конструктор Lombok
         DiseaseSymptom link = new DiseaseSymptom(diseaseName, symptomName);
         diseaseSymptomRepository.add(link);
     }
 
     @Override
     public List<Disease> findDiseasesBySymptom(String symptomName) {
+        // Получаем названия болезней по симптому
         List<String> diseaseNames = diseaseSymptomRepository.getDiseaseNamesBySymptomName(symptomName);
 
         List<Disease> diseases = new ArrayList<>();
+        // Для каждого названия получаем полный объект болезни
         for (String diseaseName : diseaseNames) {
             Disease disease = diseaseRepository.getByName(diseaseName);
             if (disease != null) {

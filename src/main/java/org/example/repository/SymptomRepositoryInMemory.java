@@ -4,6 +4,9 @@ import org.example.entities.Symptom;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Репозиторий для хранения симптомов в памяти
+ */
 public class SymptomRepositoryInMemory implements SymptomRepository {
     private List<Symptom> symptoms = new ArrayList<>();
 

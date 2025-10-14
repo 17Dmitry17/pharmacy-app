@@ -10,5 +10,4 @@ import lombok.NoArgsConstructor;
 public class Disease {
     private String name;
     private String description;
-
 }

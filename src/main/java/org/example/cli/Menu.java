@@ -18,6 +18,7 @@ public class Menu {
         this.pharmacyService = pharmacyService;
     }
 
+    // Главный цикл меню
     public void run() {
         while (true) {
             printMainMenu();
@@ -47,6 +48,7 @@ public class Menu {
             }
         }
     }
+
 
     private void printMainMenu() {
         System.out.println("\n=== Домашняя аптечка ===");
@@ -86,7 +88,7 @@ public class Menu {
     }
 
     private void addMedicine() {
-        scanner.nextLine();
+        scanner.nextLine(); // Очистка буфера
 
         System.out.print("Введите название лекарства: ");
         String name = scanner.nextLine();
@@ -98,6 +100,7 @@ public class Menu {
         System.out.print("Введите название болезни: ");
         String diseaseName = scanner.nextLine();
 
+        // Создание объекта через конструктор @AllArgsConstructor от Lombok
         Medicine medicine = new Medicine(name, expirationDate, diseaseName);
         pharmacyService.addMedicine(medicine);
 
@@ -114,7 +117,7 @@ public class Menu {
 
         System.out.println("\nСписок лекарств:");
         for (Medicine medicine : medicines) {
-            System.out.println(medicine);
+            System.out.println(medicine); // toString() автоматически от Lombok
         }
     }
 
@@ -148,6 +151,7 @@ public class Menu {
         System.out.print("Введите название болезни: ");
         String diseaseName = scanner.nextLine();
 
+        // Создание нового объекта через конструктор Lombok
         Medicine updatedMedicine = new Medicine(newName, expirationDate, diseaseName);
         pharmacyService.updateMedicine(name, updatedMedicine);
 
@@ -185,6 +189,7 @@ public class Menu {
         System.out.print("Введите описание: ");
         String description = scanner.nextLine();
 
+        // Создание объекта через конструктор @AllArgsConstructor
         Disease disease = new Disease(name, description);
         pharmacyService.addDisease(disease);
 
@@ -201,7 +206,7 @@ public class Menu {
 
         System.out.println("\nСписок болезней:");
         for (Disease disease : diseases) {
-            System.out.println(disease);
+            System.out.println(disease); // toString() от @Data
         }
     }
 
@@ -242,6 +247,7 @@ public class Menu {
         System.out.print("Введите название симптома: ");
         String name = scanner.nextLine();
 
+        // Создание объекта через конструктор @AllArgsConstructor
         Symptom symptom = new Symptom(name);
         pharmacyService.addSymptom(symptom);
 
@@ -258,7 +264,7 @@ public class Menu {
 
         System.out.println("\nСписок симптомов:");
         for (Symptom symptom : symptoms) {
-            System.out.println(symptom);
+            System.out.println(symptom); // toString() от @Data
         }
     }
 
@@ -300,11 +306,12 @@ public class Menu {
         }
     }
 
+    // Чтение целого числа с обработкой ошибок
     private int readInt() {
         try {
             return scanner.nextInt();
         } catch (Exception e) {
-            scanner.nextLine();
+            scanner.nextLine(); // Очистка буфера при ошибке
             return -1;
         }
     }

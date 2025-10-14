@@ -4,6 +4,9 @@ import org.example.entities.Medicine;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Репозиторий для хранения лекарств в памяти
+ */
 public class MedicineRepositoryInMemory implements MedicineRepository {
     private List<Medicine> medicines = new ArrayList<>();
 
@@ -45,6 +48,7 @@ public class MedicineRepositoryInMemory implements MedicineRepository {
     @Override
     public List<Medicine> getByDiseaseName(String diseaseName) {
         List<Medicine> result = new ArrayList<>();
+        // Ищем все лекарства для указанной болезни
         for (Medicine medicine : medicines) {
             if (medicine.getDiseaseName().equalsIgnoreCase(diseaseName)) {
                 result.add(medicine);
