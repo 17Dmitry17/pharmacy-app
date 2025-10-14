@@ -1,34 +1,13 @@
 package org.example.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class DiseaseSymptom {
     private String diseaseName;
     private String symptomName;
-
-
-    public DiseaseSymptom(String diseaseName, String symptomName) {
-        this.diseaseName = diseaseName;
-        this.symptomName = symptomName;
-    }
-
-    public String getDiseaseName() {
-        return diseaseName;
-    }
-
-    public void setDiseaseName(String diseaseName) {
-        this.diseaseName = diseaseName;
-    }
-
-    public String getSymptomName() {
-        return symptomName;
-    }
-
-    public void setSymptomName(String symptomName) {
-        this.symptomName = symptomName;
-    }
-
-    @Override
-    public String toString() {
-        return "Связь: болезнь '" + diseaseName + "' <-> симптом '" + symptomName + "'";
-    }
-
 }
