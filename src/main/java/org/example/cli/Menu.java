@@ -18,7 +18,6 @@ public class Menu {
         this.pharmacyService = pharmacyService;
     }
 
-    // Главный цикл меню
     public void run() {
         while (true) {
             printMainMenu();
@@ -88,7 +87,7 @@ public class Menu {
     }
 
     private void addMedicine() {
-        scanner.nextLine(); // Очистка буфера
+        scanner.nextLine();
 
         System.out.print("Введите название лекарства: ");
         String name = scanner.nextLine();
@@ -100,7 +99,6 @@ public class Menu {
         System.out.print("Введите название болезни: ");
         String diseaseName = scanner.nextLine();
 
-        // Создание объекта через конструктор @AllArgsConstructor от Lombok
         Medicine medicine = new Medicine(name, expirationDate, diseaseName);
         pharmacyService.addMedicine(medicine);
 
@@ -117,7 +115,7 @@ public class Menu {
 
         System.out.println("\nСписок лекарств:");
         for (Medicine medicine : medicines) {
-            System.out.println(medicine); // toString() автоматически от Lombok
+            System.out.println(medicine);
         }
     }
 
@@ -151,7 +149,7 @@ public class Menu {
         System.out.print("Введите название болезни: ");
         String diseaseName = scanner.nextLine();
 
-        // Создание нового объекта через конструктор Lombok
+
         Medicine updatedMedicine = new Medicine(newName, expirationDate, diseaseName);
         pharmacyService.updateMedicine(name, updatedMedicine);
 
@@ -264,7 +262,7 @@ public class Menu {
 
         System.out.println("\nСписок симптомов:");
         for (Symptom symptom : symptoms) {
-            System.out.println(symptom); // toString() от @Data
+            System.out.println(symptom);
         }
     }
 
