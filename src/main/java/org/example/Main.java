@@ -20,16 +20,13 @@ public class Main {
         PharmacyService pharmacyService;
 
         if (choice == 2) {
-            // Инициализируем БД
             DatabaseManager.initializeDatabase();
 
-            // Создаём JDBC-репозитории
             MedicineRepository medicineRepository = new MedicineRepositoryJdbc();
             DiseaseRepository diseaseRepository = new DiseaseRepositoryJdbc();
             SymptomRepository symptomRepository = new SymptomRepositoryJdbc();
             DiseaseSymptomRepository diseaseSymptomRepository = new DiseaseSymptomRepositoryJdbc();
 
-            // Создаём сервис с JDBC-репозиториями
             pharmacyService = new PharmacyServiceImpl(
                     medicineRepository,
                     diseaseRepository,
@@ -39,13 +36,11 @@ public class Main {
 
             System.out.println("✅ Используется база данных H2");
         } else {
-            // Создаём InMemory-репозитории (как было раньше)
             MedicineRepository medicineRepository = new MedicineRepositoryInMemory();
             DiseaseRepository diseaseRepository = new DiseaseRepositoryInMemory();
             SymptomRepository symptomRepository = new SymptomRepositoryInMemory();
             DiseaseSymptomRepository diseaseSymptomRepository = new DiseaseSymptomRepositoryInMemory();
 
-            // Создаём сервис с InMemory-репозиториями
             pharmacyService = new PharmacyServiceImpl(
                     medicineRepository,
                     diseaseRepository,

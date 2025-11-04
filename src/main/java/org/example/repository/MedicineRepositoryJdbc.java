@@ -7,9 +7,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * JDBC-реализация репозитория лекарств
- */
 public class MedicineRepositoryJdbc implements MedicineRepository {
 
     @Override
