@@ -10,13 +10,12 @@ public class DatabaseManager {
     private static final String DB_USER = "sa";
     private static final String DB_PASSWORD = "";
 
-    // Статический блок для загрузки драйвера
     static {
         try {
             Class.forName("org.h2.Driver");
-            System.out.println("✅ H2 драйвер загружен");
+            System.out.println("H2 драйвер загружен");
         } catch (ClassNotFoundException e) {
-            System.err.println("❌ H2 драйвер НЕ найден! Проверь pom.xml");
+            System.err.println("H2 драйвер НЕ найден! Проверь pom.xml");
             throw new RuntimeException("H2 драйвер отсутствует", e);
         }
     }
@@ -60,10 +59,10 @@ public class DatabaseManager {
                 )
             """);
 
-            System.out.println("✅ База данных инициализирована (файл: pharmacy-db.mv.db)");
+            System.out.println("База данных инициализирована (файл: pharmacy-db.mv.db)");
 
         } catch (SQLException e) {
-            System.err.println("❌ Ошибка инициализации БД: " + e.getMessage());
+            System.err.println("Ошибка инициализации БД: " + e.getMessage());
             throw new RuntimeException("Не удалось инициализировать БД", e);
         }
     }

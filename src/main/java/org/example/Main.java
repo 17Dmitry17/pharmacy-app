@@ -34,7 +34,7 @@ public class Main {
                     diseaseSymptomRepository
             );
 
-            System.out.println("✅ Используется база данных H2");
+            System.out.println("Используется база данных H2");
         } else {
             MedicineRepository medicineRepository = new MedicineRepositoryInMemory();
             DiseaseRepository diseaseRepository = new DiseaseRepositoryInMemory();
@@ -48,7 +48,7 @@ public class Main {
                     diseaseSymptomRepository
             );
 
-            System.out.println("✅ Используется хранилище в памяти");
+            System.out.println("Используется хранилище в памяти");
         }
 
         // Запускаем меню
