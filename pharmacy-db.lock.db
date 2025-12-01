@@ -1,0 +1,6 @@
+#FileLock
+#Mon Dec 01 15:06:47 MSK 2025
+hostName=192.168.1.159
+id=19ad9cedfa60ecf10d2396136814f8912fb6c856f88
+method=file
+server=192.168.1.159\:56161
